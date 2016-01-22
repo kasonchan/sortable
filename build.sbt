@@ -9,4 +9,5 @@ val testDependencies = Seq(
   "org.scalatest" %% "scalatest" % "2.2.5"
 )
 
-libraryDependencies ++= testDependencies.map(_ % "test")
+libraryDependencies ++= Seq(
+  "com.typesafe.play" % "play_2.11" % "2.4.6") ++ testDependencies.map(_ % "test")
