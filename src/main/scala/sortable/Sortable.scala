@@ -30,14 +30,15 @@ object Sortable {
   /**
     * Convert raw JSON string to JSON
     *
-    * @param rawJson  JSON string
-    * @param parseFor products or listings
+    * @param rawJson JSON string
     */
-  def toJson(rawJson: String, parseFor: String) = {
-    parseFor match {
-      case "products" => Json.parse(rawJson)
-      case "listings" => Json.parse(rawJson)
-      case _ => None
+  def toJson(rawJson: String): Either[String, JsValue] = {
+    Try {
+      Json.parse(rawJson)
+    }
+    match {
+      case Success(j) => Right(j)
+      case Failure(e) => Left(e.toString)
     }
   }
 
