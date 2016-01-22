@@ -1,5 +1,7 @@
 # Sortable
 
+[![Build Status](https://travis-ci.org/kasonchan/sortable.svg?branch=master)](https://travis-ci.org/kasonchan/sortable)
+
 ### Task
 
 Generate a file with a list of Result objects. A result object associates a 
