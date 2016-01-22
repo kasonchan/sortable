@@ -1,6 +1,8 @@
 # Sortable
 
 [![Build Status](https://travis-ci.org/kasonchan/sortable.svg?branch=master)](https://travis-ci.org/kasonchan/sortable)
+[![codecov.io](https://codecov.io/github/kasonchan/sortable/coverage.svg?branch=master)](https://codecov.io/github/kasonchan/sortable?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/216d15ebeabd4e8285890153b89d3e0d)](https://www.codacy.com/app/kasonchan/sortable)
 
 ### Task
 

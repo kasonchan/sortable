@@ -8,7 +8,7 @@ import org.scalatest.{FlatSpec, Matchers}
   */
 class SortableSpec extends FlatSpec with Matchers {
 
-  "sortable" should "pass" in {
+  "read" should "pass" in {
     read("resources/data/testListings.txt") shouldBe
       Right("[{\"title\":\"LED Flash Macro Ring Light (48 X LED) with 6 Adapter Rings for For Canon/Sony/Nikon/Sigma Lenses\",\"manufacturer\":\"Neewer Electronics Accessories\",\"currency\":\"CAD\",\"price\":\"35.99\"},{\"title\":\"Canon PowerShot SX130IS 12.1 MP Digital Camera with 12x Wide Angle Optical Image Stabilized Zoom with 3.0-Inch LCD\",\"manufacturer\":\"Canon Canada\",\"currency\":\"CAD\",\"price\":\"199.96\"}]")
     read("resources/data/testProducts.txt") shouldBe
