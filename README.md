@@ -74,3 +74,18 @@ This application is built with the following:
 
 -  [Scala](http://www.scala-lang.org/) version 2.11.7
 -  [SBT](http://www.scala-sbt.org/) version 0.13.8
+
+### Assumptions
+
+-  I name the output text file `results.txt`.
+
+### Running the code 
+
+Follow these steps to run the code:
+
+1. Download this repository.
+2. `Unzip` the downloaded repository.
+3. `cd` into the directory.
+4. Enter `sbt test` to test.
+5. Enter `sbt run` to execute.
+6. Enter `sbt clean` to clean up the compiled files.
