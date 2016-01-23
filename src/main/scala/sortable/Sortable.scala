@@ -11,15 +11,31 @@ import scala.util.{Failure, Success, Try}
 object Sortable {
 
   /**
-    * Read a JSON file line by line as JSON format string
+    * Read a JSON file line by line as a JSON format string
     *
     * @param pathName the directory of the JSON file
     */
-  def read(pathName: String) = {
+  def readAsString(pathName: String): Either[String, String] = {
     Try {
       val src = Source.fromFile(pathName)
       val lines = src.getLines().mkString("[", ",", "]")
       src.close()
+      lines
+    } match {
+      case Success(f) => Right(f)
+      case Failure(e) => Left(e.toString)
+    }
+  }
+
+  /**
+    * Load a JSON file line by line as sequence of raw JSON string
+    *
+    * @param pathName the directory of the JSON file
+    */
+  def readAsSeq(pathName: String): Either[String, Seq[String]] = {
+    Try {
+      val src = Source.fromFile(pathName)
+      val lines = src.getLines().toSeq
       lines
     } match {
       case Success(f) => Right(f)
