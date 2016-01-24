@@ -81,16 +81,22 @@ This application is built with the following:
 -  output text file is named `results.txt`.
 -  The attributes excluding `product_name` from product objects do not carry over
 to the result objects.
+-  The following situations are considered as matched if either of the following holds `true` and `ignore cases`:
+    -  The `title` attribute of the listing object contains `manufacturer`, `family` and `model` of product objects `AND`
+       the `manufacturer` attribute of the project object equals to listing object.
+    -  The `title` attribute of the listing object contains `manufacturer`, and `model` of product objects `AND`
+       the `manufacturer` attribute of the project object equals to listing object.
 
 ### Running the code 
 
 Follow these steps to run the code:
 
-1. Download this repository.
-2. `Unzip` the downloaded repository.
-3. `cd` into the directory.
-4. Enter `sbt test` to test. `blank.txt`, `tests.txt` and `results.txt` files will be created. 
-5. Enter `sbt run` to execute.
-6. Enter `sbt clean` to clean up the compiled files.
+-  Enter `git clone https://github.com/kasonchan/sortable.git`.
+Or Download `zip` file from `https://github.com/kasonchan/sortable`. `Unzip` the file.
+-  `cd` into the `sortable` directory.
+-  Enter `sbt run` to execute the program.
+-  Enter `sbt test` to test. `blank.txt`, `tests.txt` and `results.txt` files will be created. 
+-  Enter `sbt clean` to clean up the compiled files.
+-  Enter `rm *.txt` to remove all output files.
 
--  The `results.txt` created in running `sbt test` is the same as running `sbt run`.
+The `results.txt` created in running `sbt test` is the same as running `sbt run`.

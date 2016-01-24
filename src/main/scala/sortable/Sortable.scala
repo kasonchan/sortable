@@ -43,7 +43,6 @@ object Sortable {
       pj <- productsJson
     } yield Json.obj("product_name" -> (pj \ "product_name").as[String],
       "listings" -> listingsJson.filter(l =>
-        // TODO: Check manufacturer, family and model name in title
         (// manufacturer, family, model in the title
           ((l \ "title").as[String].toLowerCase contains (pj \ "manufacturer").as[String].toLowerCase) &&
             ((l \ "title").as[String].toLowerCase contains (pj \ "family").asOpt[String].getOrElse("").toLowerCase) &&
