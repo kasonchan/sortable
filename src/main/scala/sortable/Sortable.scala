@@ -4,7 +4,11 @@ import java.io.{File, PrintWriter}
 
 import play.api.libs.json._
 
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 import scala.io.Source
+import scala.util.{Failure, Success}
 
 /**
   * Created by kasonchan on 1/21/16.
@@ -77,9 +81,16 @@ object Sortable {
     val productsJson = products.map(p => toJson(p))
     val listingsJson = listings.map(l => toJson(l))
 
-    val result = associate(productsJson, listingsJson).mkString("", "\n", "")
+    val result = Future {
+      associate(productsJson, listingsJson).mkString("", "\n", "")
+    }
 
-    print(result, "results.txt")
+    Await.result(result, Duration.Inf)
+
+    result.onComplete {
+      case Success(s) => print(s, "results.txt")
+      case Failure(f) => print(f.toString, "results.txt")
+    }
   }
 
 }
