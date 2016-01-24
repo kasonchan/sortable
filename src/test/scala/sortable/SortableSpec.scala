@@ -61,10 +61,10 @@ class SortableSpec extends FlatSpec with Matchers {
   }
 
   "print" should "pass" in {
-    print("test", "test.txt") shouldBe()
+    print("test", "test.txt")
     readAsSeq("test.txt").mkString shouldBe "test"
 
-    print("", "blank.txt") shouldBe()
+    print("", "blank.txt")
     readAsSeq("blank.txt").mkString shouldBe ""
 
     intercept[java.io.FileNotFoundException] {
