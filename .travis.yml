@@ -8,3 +8,6 @@ script:
 
 after_success:
   - pip install --user codecov && codecov
+  - rm blank.txt
+  - rm test.txt
+  - rm results.txt

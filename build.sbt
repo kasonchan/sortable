@@ -8,7 +8,9 @@ lazy val buildSettings = Seq(
 
 lazy val compilerOptions = Seq(
   "-encoding", "UTF-8",
-  "-feature"
+  "-feature",
+  "-Ylog-classpath",
+  "-deprecation"
 )
 
 val testDependencies = Seq(
