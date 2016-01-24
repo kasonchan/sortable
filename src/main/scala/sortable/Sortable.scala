@@ -71,7 +71,7 @@ object Sortable {
     writer.close()
   }
 
-  def main(args: Array[String]): Unit = {
+  def main(args: Array[String]) {
     val products = readAsSeq("resources/data/products.txt")
     val listings = readAsSeq("resources/data/listings.txt")
 
