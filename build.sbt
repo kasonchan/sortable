@@ -20,7 +20,7 @@ val testDependencies = Seq(
 
 val baseSettings = Seq(
   libraryDependencies ++= Seq(
-    "com.typesafe.play" % "play_2.11" % "2.4.6"
+    "com.typesafe.play" % "play_2.11" % "2.3.8"
   ) ++ testDependencies.map(_ % "test"),
   scalacOptions in(Compile, console) := compilerOptions
 )
