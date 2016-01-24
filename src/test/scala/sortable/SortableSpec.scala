@@ -2,7 +2,7 @@ package sortable
 
 import org.scalatest.{FlatSpec, Matchers}
 import play.api.libs.json.Json
-import sortable.Sortable.{associate, print, readAsSeq, toJson}
+import sortable.Sortable.{associate, main, print, readAsSeq, toJson}
 
 /**
   * Created by kasonchan on 1/22/16.
@@ -56,6 +56,17 @@ class SortableSpec extends FlatSpec with Matchers {
   }
 
   "associate" should "pass" in {
+    val products = readAsSeq("resources/data/testProducts.txt")
+    val listings = readAsSeq("resources/data/testListings.txt")
+    val productsJson = products.map(p => toJson(p))
+    val listingsJson = listings.map(l => toJson(l))
+    associate(productsJson, listingsJson).mkString("", "\n", "") shouldBe
+      "{\"product_name\":\"Samsung_TL240\",\"listings\":[{\"title\":\"Samsung TL240 - Digital camera - compact - 14.2 Mpix - optical zoom: 7 x - supported memory: microSD, microSDHC - black\",\"manufacturer\":\"Samsung\",\"currency\":\"USD\",\"price\":\"210.00\"},{\"title\":\"Samsung TL240 - Digital camera - compact - 14.2 Mpix - optical zoom: 7 x - supported memory: microSD, microSDHC - black\",\"manufacturer\":\"Samsung\",\"currency\":\"USD\",\"price\":\"265.99\"},{\"title\":\"Samsung TL240 - Digital camera - compact - 14.2 Mpix - optical zoom: 7 x - supported memory: microSD, microSDHC - black\",\"manufacturer\":\"Samsung\",\"currency\":\"USD\",\"price\":\"275.35\"}]}" + "\n" +
+      "{\"product_name\":\"Nikon-s6100\",\"listings\":[]}" + "\n" +
+      "{\"product_name\":\"Samsung_TL220\",\"listings\":[]}" + "\n" +
+      "{\"product_name\":\"Fujifilm-T205\",\"listings\":[]}" + "\n" +
+      "{\"product_name\":\"Casio_QV-5000SX\",\"listings\":[]}" + "\n" +
+      "{\"product_name\":\"Canon_Digital_IXUS_130_IS\",\"listings\":[]}"
     associate(Seq(), Seq()) shouldBe
       List()
   }
@@ -70,6 +81,10 @@ class SortableSpec extends FlatSpec with Matchers {
     intercept[java.io.FileNotFoundException] {
       print("", "")
     }
+  }
+
+  "main" should "pass" in {
+    main(Array())
   }
 
 }
